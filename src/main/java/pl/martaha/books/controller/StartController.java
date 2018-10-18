@@ -11,6 +11,8 @@ public class StartController {
     public String home() {
         return "main";
     }
+
+
 }
 
 
