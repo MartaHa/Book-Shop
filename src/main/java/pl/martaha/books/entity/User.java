@@ -26,7 +26,7 @@ public class User {
     private String email;
     private String firstName;
     private String lastName;
-    private Date dateOfBirth;
+    private String dateOfBirth;
 
 
     private String streetName;
@@ -101,11 +101,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

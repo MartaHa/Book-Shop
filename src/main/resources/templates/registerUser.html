@@ -7,7 +7,7 @@
     <form th:action="@{/registerUser}" method="post" th:object="${user}">
 
         <div>
-            <h1> Your data</h1>
+            <h2> Your data</h2>
         <p>
             <label th:for="username"> User Name</label>
         <p th:input type="text" placeholder=" username">
@@ -40,14 +40,14 @@
         </p>
         <p>
             <label th:for="dateOfBirth">Date of Birth</label>
-        <p th:input type="date" placeholder="dateOfBirth">
+        <p th:input type="text" placeholder="dateOfBirth">
             <input th:field="*{dateOfBirth}"/>
         <p th:errors="*{dateOfBirth}"></p>
         </p>
         </div>
 
         <div>
-            <h1> Your address:</h1>
+            <h2> Your address:</h2>
             <p>
                 <label th:for="streetName"> Street Name </label>
             <p th:input type="text" placeholder=" streetName">
@@ -68,7 +68,7 @@
             </p>
             <p>
                 <label th:for="postalCode">Postal Code</label>
-            <p th:input type="text" placeholder="postalCode">
+            <p th:input type="number" placeholder="postalCode">
                 <input th:field="*{postalCode}"/>
             <p th:errors="*{postalCode}"></p>
             </p>

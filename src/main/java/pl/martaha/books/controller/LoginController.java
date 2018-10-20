@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import pl.martaha.books.entity.User;
 import pl.martaha.books.service.UserService;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
@@ -67,4 +68,34 @@ public class LoginController {
     }
 
 
+    /* redirecting to main page depending on the role */
+
+    @GetMapping("/checkrole")
+
+    public String loginPage(HttpServletRequest httpServletRequest) {
+        if (httpServletRequest.isUserInRole("ADMIN")) {
+            return "redirect:/welcomeAdmin";
+        } else if (httpServletRequest.isUserInRole("USER")) {
+            return "redirect:/welcomeUser";
+        }
+        return "redirect:/";
+    }
+
+
+    @GetMapping("/welcomeUser")
+    public String welcomeUser() {
+        return "user/mainUser";
+    }
+
+    @GetMapping("/welcomeAdmin")
+    public String welcomeAdmin() {
+        return "admin/mainAdmin";
+    }
+
 }
+
+
+
+
+
+

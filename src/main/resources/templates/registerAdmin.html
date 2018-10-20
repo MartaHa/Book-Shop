@@ -1,10 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <body>
 
+<h1>Register as admin:</h1>
+<div class="card-body">
+    <form th:action="@{/registerAdmin}" method="post" th:object="${user}">
+
+        <div>
+            <p>
+                <label th:for="username"> User Name</label>
+            <p th:input type="text" placeholder=" username">
+                <input th:field="*{username}"/>
+            <p th:errors="*{username}"></p>
+            </p>
+            <p>
+                <label th:for="password">Password</label>
+            <p th:input type="password" placeholder="password">
+                <input th:field="*{password}"/>
+            <p th:errors="*{password}"></p>
+            </p>
+            <p>
+                <label th:for="email">Email</label>
+            <p th:input type="email" placeholder="email">
+                <input th:field="*{email}"/>
+            <p th:errors="*{email}"></p>
+            </p>
+            <p>
+                <label th:for="firstName">First Name</label>
+            <p th:input type="text" placeholder="firstName">
+                <input th:field="*{firstName}"/>
+            <p th:errors="*{firstName}"></p>
+            </p>
+            <p>
+                <label th:for="lastName">Last Name</label>
+            <p th:input type="text" placeholder="lastName">
+                <input th:field="*{lastName}"/>
+            <p th:errors="*{lastName}"></p>
+            </p>
+            <p>
+                <input type="hidden" th:field="*{id}"/>
+            </p>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</div>
+</div>
 </body>
 </html>
