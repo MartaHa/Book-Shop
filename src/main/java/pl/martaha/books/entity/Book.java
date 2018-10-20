@@ -1,7 +1,10 @@
 package pl.martaha.books.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Book {
@@ -12,39 +15,63 @@ public class Book {
     private String title;
     private String dateOfPublishing;
 
-    @ManyToMany
-    private List<Author> authors;
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Set<Author> authors = new HashSet<>();
 
-    @ManyToMany
-    private List <Category> categories;
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Set <Category> categories = new HashSet<>();
     private int price;
 
 
 
-    /*Getters & Constructor*/
+    /*Getters & Setters & Constructor*/
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getTitle() {
         return title;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getDateOfPublishing() {
         return dateOfPublishing;
     }
 
-    public List<Author> getAuthors() {
+    public void setDateOfPublishing(String dateOfPublishing) {
+        this.dateOfPublishing = dateOfPublishing;
+    }
+
+    public Set<Author> getAuthors() {
         return authors;
     }
 
-    public List<Category> getCategories() {
+    public void setAuthors(Set<Author> authors) {
+        this.authors = authors;
+    }
+
+    public Set<Category> getCategories() {
         return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
     }
 
     public int getPrice() {
         return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public Book() {
