@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <h1>Add an author</h1>
+    <div class="card-body">
+        <form th:action="@{/author/add}" method="post" th:object="${author}">
+            <div>
+                <label th:for="firstName"> First Name</label>
+                <p th:input type="text" placeholder="firstName">
+                    <input th:field="*{firstName}"/>
+                <p th:errors="*{firstName}"></p>
+            </div>
+            <div>
+                <label th:for="lastName">Last Name</label>
+                <p th:input type="text" placeholder="lastName">
+                    <input th:field="*{lastName}"/>
+                <p th:errors="*{lastName}"></p>
+            </div>
+            <input type="hidden" th:field="*{id}"/>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    </div>
+
+</body>
+</html>
