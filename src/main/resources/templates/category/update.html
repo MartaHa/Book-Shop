@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Update information </h1>
+<div class="card-body">
+    <form th:action="@{/category/update}" method="post" th:object="${category}">
+        <div>
+            <label th:for="name"> name</label>
+            <p th:input type="text" placeholder=" name">
+                <input th:field="*{name}"/>
+            <p th:errors="*{name}"></p>
+        </div>
+        <input type="hidden" th:field="*{id}"/>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>

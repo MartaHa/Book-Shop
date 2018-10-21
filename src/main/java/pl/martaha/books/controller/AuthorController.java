@@ -66,6 +66,17 @@ public class AuthorController {
         return "redirect:/author/showAll";
 
     }
+
+    /* delete Author */
+
+    @GetMapping("/delete/{id}")
+    public String deleteAuthor(Model model, @PathVariable long id) {
+        Author author= authorRepository.getOne(id);
+        authorRepository.delete(author);
+        return "author/showAll";
+    }
+
+
 }
 
 

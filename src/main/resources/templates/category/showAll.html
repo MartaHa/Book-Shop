@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h3>List of Categories</h3>
+
+<div>
+    <span> Add new category </span>
+    <a th:href="@{/category/add}">Add
+    </a>
+</div>
+<div>
+    <table>
+        <tr>
+            <th th:text="'Id'"></th>
+            <th th:text="'Name'"></th>
+            <th> UPDATE</th>
+        </tr>
+
+        <tr th:each="category: ${categories}">
+            <td th:text="${category.id}"></td>
+            <td th:text="${category.name}"></td>
+            <td><a th:href="@{/category/update/{id}/(id=${category.id})}"> Update </a></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
