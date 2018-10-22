@@ -4,37 +4,41 @@
     <h1>Add a book:</h1>
     <div class="card-body">
         <form th:action="@{/book/add}" method="post" th:object="${book}">
+
             <div>
                 <label th:for="title"> Title</label>
                 <p th:input type="text" placeholder=" title">
                     <input th:field="*{title}"/>
                 <p th:errors="*{title}"></p>
             </div>
+
             <div>
                 <label th:for="dateOfPublishing"> Date of Publishing</label>
                 <p th:input type="text" placeholder=" dateOfPublishing">
                     <input th:field="*{dateOfPublishing}"/>
                 <p th:errors="*{dateOfPublishing}"></p>
             </div>
+
             <div>
-                <label th:for="author">Choose author</label>
-                <select class="form-control" name="author">
-                    <option value="0">Authors</option>
-                    <option th:each="author : ${authors}"
-                            th:value="${author.id}"
-                            th:text="${author.fullName}">
-                    </option>
-                </select>
+                <label th:for="authors">Authors</label>
+                <p th:input type="text" placeholder="authors">
+                    <select th:field="*{authors}" multiple="true">
+                        <option th:each="author : ${authorsList}"
+                                th:value="${author.id}"
+                                th:text="${author.fullName}"/>
+                    </select>
+                <p th:errors="*{authors}"></p>
             </div>
+
             <div>
-                <label th:for="category">Choose category:</label>
-                <select class="form-control" name="category" id="category">
-                    <option value="0">Categories</option>
-                    <option th:each="category : ${categories}"
-                            th:value="${category.id}"
-                            th:text="${category.name}">
-                    </option>
-                </select>
+                <label th:for="categories">Categories</label>
+                <p th:input type="text" placeholder="categories">
+                    <select th:field="*{categories}" multiple="true">
+                        <option th:each="category : ${categoriesList}"
+                                th:value="${category.id}"
+                                th:text="${category.name}"/>
+                    </select>
+                <p th:errors="*{categories}"></p>
             </div>
             <div>
                 <label th:for="price"> Price</label>
@@ -46,5 +50,6 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
+    <a th:href="@{/book/showAll}"> Back </a>
 </body>
 </html>

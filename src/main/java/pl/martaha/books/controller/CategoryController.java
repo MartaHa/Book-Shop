@@ -9,6 +9,7 @@ import pl.martaha.books.entity.Category;
 import pl.martaha.books.repository.CategoryRepository;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/category")
@@ -76,6 +77,12 @@ public class CategoryController {
         return "category/showAll";
     }
 
+    /* CategoryList */
+
+    @ModelAttribute("CategoriesList")
+    List<Category> getCategories() {
+        return categoryRepository.findAll();
+    }
 }
 
 

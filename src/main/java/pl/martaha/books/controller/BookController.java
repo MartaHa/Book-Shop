@@ -60,7 +60,7 @@ public class BookController {
 
     /* add Author to Book */
 
-    @ModelAttribute("authors")
+    @ModelAttribute("authorsList")
     public Collection<Author> populateAuthors() {
         List<Author> authors = authorRepository.findAll();
         return authors;
@@ -68,7 +68,7 @@ public class BookController {
 
 
     /* add Category to Book */
-    @ModelAttribute("categories")
+    @ModelAttribute("categoriesList")
     public Collection<Category> populateCategories() {
         List<Category> categories = categoryRepository.findAll();
         return categories;

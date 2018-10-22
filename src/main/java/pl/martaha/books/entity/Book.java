@@ -15,11 +15,26 @@ public class Book {
     private String title;
     private String dateOfPublishing;
 
-    @ManyToMany
-    private Set<Author> authors;
 
-    @ManyToMany
-    private Set <Category> categories;
+    @ManyToMany(cascade = {CascadeType.PERSIST,
+            CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "Book_Author",
+            joinColumns = {@JoinColumn(name = "book_id")},
+            inverseJoinColumns = {@JoinColumn(name = "author_id")}
+    )
+    private Set<Author> authors = new HashSet<>();
+
+
+    @ManyToMany(cascade = {CascadeType.PERSIST,
+            CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "Book_Category",
+            joinColumns = {@JoinColumn(name = "book_id")},
+            inverseJoinColumns = {@JoinColumn(name = "category_id")}
+    )
+   private Set<Category> categories = new HashSet<>();
+
     private int price;
 
 

@@ -8,6 +8,7 @@ import pl.martaha.books.entity.Author;
 import pl.martaha.books.repository.AuthorRepository;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/author")
@@ -76,6 +77,12 @@ public class AuthorController {
         return "author/showAll";
     }
 
+    //Authors List
+
+    @ModelAttribute("AuthorsList")
+    List<Author> getAuthors() {
+        return authorRepository.findAll();
+    }
 
 }
 

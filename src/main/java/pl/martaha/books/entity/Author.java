@@ -21,8 +21,8 @@ public class Author {
         return firstName + " " + lastName;
     }
 
-    @ManyToMany
-    private Set<Book> books;
+    @ManyToMany(mappedBy = "authors")
+    private Set<Book> books = new HashSet<>();
 
 
     /*Getters & Setters & Constructor*/
