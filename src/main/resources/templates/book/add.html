@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <h1>Add a book:</h1>
+    <div class="card-body">
+        <form th:action="@{/book/add}" method="post" th:object="${book}">
+            <div>
+                <label th:for="title"> Title</label>
+                <p th:input type="text" placeholder=" title">
+                    <input th:field="*{title}"/>
+                <p th:errors="*{title}"></p>
+            </div>
+            <div>
+                <label th:for="dateOfPublishing"> Date of Publishing</label>
+                <p th:input type="text" placeholder=" dateOfPublishing">
+                    <input th:field="*{dateOfPublishing}"/>
+                <p th:errors="*{dateOfPublishing}"></p>
+            </div>
+            <div>
+                <label th:for="author">Choose author</label>
+                <select class="form-control" name="author">
+                    <option value="0">Authors</option>
+                    <option th:each="author : ${authors}"
+                            th:value="${author.id}"
+                            th:text="${author.fullName}">
+                    </option>
+                </select>
+            </div>
+            <div>
+                <label th:for="category">Choose category:</label>
+                <select class="form-control" name="category" id="category">
+                    <option value="0">Categories</option>
+                    <option th:each="category : ${categories}"
+                            th:value="${category.id}"
+                            th:text="${category.name}">
+                    </option>
+                </select>
+            </div>
+            <div>
+                <label th:for="price"> Price</label>
+                <p th:input type="text" placeholder=" price">
+                    <input th:field="*{price}"/>
+                <p th:errors="*{price}"></p>
+            </div>
+            <input type="hidden" th:field="*{id}"/>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

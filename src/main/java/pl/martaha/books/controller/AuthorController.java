@@ -19,7 +19,7 @@ public class AuthorController {
         this.authorRepository = authorRepository;
     }
 
-    /* adding an  Author */
+    /* add an  Author */
 
 
     @GetMapping("/add")

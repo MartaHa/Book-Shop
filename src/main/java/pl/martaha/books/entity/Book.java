@@ -15,11 +15,11 @@ public class Book {
     private String title;
     private String dateOfPublishing;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private Set<Author> authors = new HashSet<>();
+    @ManyToMany
+    private Set<Author> authors;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private Set <Category> categories = new HashSet<>();
+    @ManyToMany
+    private Set <Category> categories;
     private int price;
 
 

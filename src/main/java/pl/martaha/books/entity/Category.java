@@ -14,8 +14,8 @@ public class Category {
     private long id;
     private String name;
 
-    @ManyToMany(mappedBy = "categories")
-    private Set<Book> books = new HashSet<Book>();
+    @ManyToMany
+    private Set<Book> books;
 
 
     /*Getters & Setters &  Constructor*/
