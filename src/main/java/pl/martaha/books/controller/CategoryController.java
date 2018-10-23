@@ -71,9 +71,8 @@ public class CategoryController {
     /* delete Category */
 
     @GetMapping("/delete/{id}")
-    public String deleteCategory(Model model, @PathVariable long id) {
-        Category category = categoryRepository.getOne(id);
-        categoryRepository.delete(category);
+    public String deleteCategory(@PathVariable long id) {
+        categoryRepository.deleteById(id);
         return "category/showAll";
     }
 

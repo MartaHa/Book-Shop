@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Add a publisher</h1>
+<div class="card-body">
+    <form th:action="@{/publisher/add}" method="post" th:object="${publisher}">
+        <div>
+            <label th:for="name"> Name</label>
+            <p th:input type="text" placeholder="name">
+                <input th:field="*{name}"/>
+            <p th:errors="*{name}"></p>
+        </div>
+        <input type="hidden" th:field="*{id}"/>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<a th:href="@{/publisher/showAll}"> Back </a>
+</body>
+</html>

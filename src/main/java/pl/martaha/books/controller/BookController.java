@@ -3,10 +3,7 @@ package pl.martaha.books.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.martaha.books.entity.Author;
 import pl.martaha.books.entity.Book;
 import pl.martaha.books.entity.Category;
@@ -57,6 +54,15 @@ public class BookController {
         model.addAttribute("books", bookRepository.findAll());
         return "book/showAll";
     }
+
+    /* delete Book */
+
+    @GetMapping("/delete/{id}")
+    public String deleteBook(@PathVariable long id) {
+        bookRepository.deleteById(id);
+        return "book/showAll";
+    }
+
 
     /* add Author to Book */
 

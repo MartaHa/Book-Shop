@@ -33,7 +33,10 @@ public class Book {
             joinColumns = {@JoinColumn(name = "book_id")},
             inverseJoinColumns = {@JoinColumn(name = "category_id")}
     )
-   private Set<Category> categories = new HashSet<>();
+    private Set<Category> categories = new HashSet<>();
+
+    @OneToMany
+    private Set<Publisher> publishers = new HashSet<>();
 
     private int price;
 

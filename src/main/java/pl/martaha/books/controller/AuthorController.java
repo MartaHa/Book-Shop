@@ -71,9 +71,8 @@ public class AuthorController {
     /* delete Author */
 
     @GetMapping("/delete/{id}")
-    public String deleteAuthor(Model model, @PathVariable long id) {
-        Author author= authorRepository.getOne(id);
-        authorRepository.delete(author);
+    public String deleteAuthor(@PathVariable long id) {
+        authorRepository.deleteById(id);
         return "author/showAll";
     }
 

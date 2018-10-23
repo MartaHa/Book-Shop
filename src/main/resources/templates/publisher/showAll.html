@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h3>List of Publishers</h3>
+
+<div>
+    <span> Add a new publisher </span>
+    <a th:href="@{/publisher/add}">Add
+    </a>
+</div>
+<div>
+    <table>
+        <tr>
+            <th th:text="'Id'"></th>
+            <th th:text="'Name'"></th>
+            <th> UPDATE</th>
+        </tr>
+
+        <tr th:each="publisher: ${publishers}">
+            <td th:text="${publisher.id}"></td>
+            <td th:text="${publisher.name}"></td>
+            <td><a th:href="@{/publisher/update/{id}/(id=${publisher.id})}"> Update </a></td>
+        </tr>
+    </table>
+</div>
+<a th:href="@{/welcomeAdmin}"> Back </a>
+</body>
+</html>
