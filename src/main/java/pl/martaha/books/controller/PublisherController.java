@@ -3,10 +3,8 @@ package pl.martaha.books.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-import pl.martaha.books.entity.Author;
+import org.springframework.web.bind.annotation.*;;
 import pl.martaha.books.entity.Publisher;
-import pl.martaha.books.repository.AuthorRepository;
 import pl.martaha.books.repository.PublisherRepository;
 
 import javax.validation.Valid;

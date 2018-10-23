@@ -14,7 +14,8 @@
         <th th:text="'Id'"></th>
         <th th:text="'First Name'"></th>
         <th th:text="'Last Name'"></th>
-        <th> UPDATE</th>
+        <th> Update</th>
+        <th> Delete</th>
     </tr>
 
     <tr th:each="author: ${authors}">
@@ -22,6 +23,7 @@
         <td th:text="${author.firstName}"></td>
         <td th:text="${author.lastName}"></td>
         <td><a th:href="@{/author/update/{id}/(id=${author.id})}"> Update </a></td>
+        <td><a th:href="@{/author/delete/{id}/(id=${author.id})}"> Delete </a></td>
     </tr>
 </table>
 </div>

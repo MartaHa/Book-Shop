@@ -13,13 +13,15 @@
         <tr>
             <th th:text="'Id'"></th>
             <th th:text="'Name'"></th>
-            <th> UPDATE</th>
+            <th> Update</th>
+            <th> Delete</th>
         </tr>
 
         <tr th:each="category: ${categories}">
             <td th:text="${category.id}"></td>
             <td th:text="${category.name}"></td>
             <td><a th:href="@{/category/update/{id}/(id=${category.id})}"> Update </a></td>
+            <td><a th:href="@{/category/delete/{id}/(id=${category.id})}"> Delete </a></td>
         </tr>
     </table>
 </div>

@@ -39,7 +39,16 @@
                                 th:text="${category.name}"/>
                     </select>
                 <p th:errors="*{categories}"></p>
-            </div>
+            </div>  <div>
+            <label th:for="publishers">Publishers</label>
+            <p th:input type="text" placeholder="publishers">
+                <select th:field="*{publishers}" multiple="false">
+                    <option th:each="publisher : ${publishersList}"
+                            th:value="${publisher.id}"
+                            th:text="${publisher.name}"/>
+                </select>
+            <p th:errors="*{categories}"></p>
+        </div>
             <div>
                 <label th:for="price"> Price</label>
                 <p th:input type="text" placeholder=" price">

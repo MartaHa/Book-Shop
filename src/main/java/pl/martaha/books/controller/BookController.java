@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.*;
 import pl.martaha.books.entity.Author;
 import pl.martaha.books.entity.Book;
 import pl.martaha.books.entity.Category;
+import pl.martaha.books.entity.Publisher;
 import pl.martaha.books.repository.AuthorRepository;
 import pl.martaha.books.repository.BookRepository;
 import pl.martaha.books.repository.CategoryRepository;
+import pl.martaha.books.repository.PublisherRepository;
 
 import javax.validation.Valid;
 import java.util.Collection;
@@ -22,11 +24,13 @@ public class BookController {
     private final BookRepository bookRepository;
     private final AuthorRepository authorRepository;
     private final CategoryRepository categoryRepository;
+    private final PublisherRepository publisherRepository;
 
-    public BookController(BookRepository bookRepository, AuthorRepository authorRepository,CategoryRepository categoryRepository) {
+    public BookController(BookRepository bookRepository, AuthorRepository authorRepository,CategoryRepository categoryRepository, PublisherRepository publisherRepository) {
         this.bookRepository = bookRepository;
         this.authorRepository = authorRepository;
         this.categoryRepository = categoryRepository;
+        this.publisherRepository = publisherRepository;
     }
 
     /* Add a book*/
@@ -78,5 +82,12 @@ public class BookController {
     public Collection<Category> populateCategories() {
         List<Category> categories = categoryRepository.findAll();
         return categories;
+    }
+
+    /* add Publisher to Book */
+    @ModelAttribute("publishersList")
+    public Collection<Publisher> populatePublishers() {
+        List<Publisher> publishers = publisherRepository.findAll();
+        return publishers;
     }
 }

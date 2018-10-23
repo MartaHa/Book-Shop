@@ -92,6 +92,15 @@ public class Book {
         this.price = price;
     }
 
+
+    public Set<Publisher> getPublishers() {
+        return publishers;
+    }
+
+    public void setPublishers(Set<Publisher> publishers) {
+        this.publishers = publishers;
+    }
+
     public Book() {
     }
 }
