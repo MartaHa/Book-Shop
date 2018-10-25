@@ -8,25 +8,22 @@
     <a th:href="@{/publisher/add}">Add
     </a>
 </div>
-<>
-    <table>
-        <tr>
-            <th th:text="'Id'"></th>
-            <th th:text="'Name'"></th>
-            <th sec:authorize="hasRole('ADMIN')"> Update </th>
-            <th sec:authorize="hasRole('ADMIN')">Delete</th>
+<table>
+    <tr>
+        <th th:text="'Id'"></th>
+        <th th:text="'Name'"></th>
+        <th> Update</th>
+        <th>Delete</th>
 
-        </tr>
+    </tr>
 
-        <tr th:each="publisher: ${publishers}">
-            <td th:text="${publisher.id}"></td>
-            <td th:text="${publisher.name}"></td>
-            <div sec:authorize="hasAuthority('ADMIN')">
-                <td><a th:href="@{/publisher/update/{id}/(id=${publisher.id})}"> Update </a></td>
-                <td><a th:href="@{/publisher/delete/{id}/(id=${publisher.id})}"> Delete </a></td>
-            </div>
-        </tr>
-    </table>
+    <tr th:each="publisher: ${publishers}">
+        <td th:text="${publisher.id}"></td>
+        <td th:text="${publisher.name}"></td>
+        <td><a th:href="@{/publisher/update/{id}/(id=${publisher.id})}"> Update </a></td>
+        <td><a th:href="@{/publisher/delete/{id}/(id=${publisher.id})}"> Delete </a></td>
+    </tr>
+</table>
 </div>
 <a th:href="@{/welcomeAdmin}"> Back </a>
 </body>

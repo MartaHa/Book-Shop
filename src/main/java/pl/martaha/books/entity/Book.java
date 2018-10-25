@@ -13,6 +13,7 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String title;
+    private String description;
     private String dateOfPublishing;
 
 
@@ -38,7 +39,8 @@ public class Book {
     @OneToMany
     private Set<Publisher> publishers = new HashSet<>();
 
-    private int price;
+    private double price;
+    private int quantity;
 
 
 

@@ -97,7 +97,7 @@ public class LoginController {
 
     @GetMapping("/logout")
     public String logout() {
-        return "main";
+        return "goodbye";
     }
 
 }

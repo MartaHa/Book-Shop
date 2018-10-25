@@ -3,7 +3,7 @@
 <body>
 <h3>List of Books</h3>
 
-<div>
+<div sec:authorize="hasRole('ADMIN')">>
     <span> Add new book </span>
     <a th:href="@{/book/add}">Add
     </a>
@@ -17,8 +17,9 @@
             <th th:text="'Author'"></th>
             <th th:text="'Category'"></th>
             <th th:text="'Price'"></th>
-            <th> Update</th>
-            <th> Delete</th>
+            <th sec:authorize="hasRole('ADMIN')"> Update </th>
+            <th sec:authorize="hasRole('ADMIN')"> Delete </th>
+
         </tr>
 
         <tr th:each="book: ${books}">
@@ -34,11 +35,16 @@
                     <b th:text="${category.name}"/></span>
             </td>
             <td th:text="${book.price}"></td>
-            <td><a th:href="@{/book/update/{id}/(id=${book.id})}"> Update </a></td>
-            <td><a th:href="@{/book/delete/{id}/(id=${book.id})}"> Delete </a></td>
+            <td sec:authorize="hasRole('ADMIN')"><a th:href="@{/book/update/{id}/(id=${book.id})}"> Update </a></td>
+            <td sec:authorize="hasRole('ADMIN')"><a th:href="@{/book/delete/{id}/(id=${book.id})}"> Delete </a></td>
         </tr>
     </table>
-</div>
+</div >
+<div sec:authorize="hasRole('ADMIN')">
 <a th:href="@{/welcomeAdmin}"> Back </a>
+</div>
+<div sec:authorize="hasRole('USER')">
+    <a th:href="@{/welcomeUser}"> Back </a>
+</div>
 </body>
 </html>
