@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div>
+        <h3>Your profile details</h3>
+        <table>
+            <tr>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Update</th>
+
+            </tr>
+            <tr th:each="user1: ${user}">
+                <td th:text="${user1.username}"/>
+                <td th:text="${user1.password}"/>
+                <td th:text="${user1.email}"/>
+                <td th:text="${user1.firstName}"/>
+                <td th:text="${user1.lastName}"/>
+                <td><a th:href="@{/user/update}">UPDATE</a></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

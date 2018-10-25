@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <body>
 <h3>List of Publishers</h3>
 
@@ -8,20 +8,23 @@
     <a th:href="@{/publisher/add}">Add
     </a>
 </div>
-<div>
+<>
     <table>
         <tr>
             <th th:text="'Id'"></th>
             <th th:text="'Name'"></th>
-            <th> Update</th>
-            <th> Delete</th>
+            <th sec:authorize="hasRole('ADMIN')"> Update </th>
+            <th sec:authorize="hasRole('ADMIN')">Delete</th>
+
         </tr>
 
         <tr th:each="publisher: ${publishers}">
             <td th:text="${publisher.id}"></td>
             <td th:text="${publisher.name}"></td>
-            <td><a th:href="@{/publisher/update/{id}/(id=${publisher.id})}"> Update </a></td>
-            <td><a th:href="@{/publisher/delete/{id}/(id=${publisher.id})}"> Delete </a></td>
+            <div sec:authorize="hasAuthority('ADMIN')">
+                <td><a th:href="@{/publisher/update/{id}/(id=${publisher.id})}"> Update </a></td>
+                <td><a th:href="@{/publisher/delete/{id}/(id=${publisher.id})}"> Delete </a></td>
+            </div>
         </tr>
     </table>
 </div>

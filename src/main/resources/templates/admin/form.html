@@ -2,10 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 
-<h1>Register as admin:</h1>
 <div class="card-body">
-
-    <form th:action="@{/admin/update}" method="post" th:object="${user}">
+    <div th:fragment="add-form">
         <div>
             <p>
                 <label th:for="username"> User Name</label>
@@ -42,7 +40,7 @@
             </p>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </div>
 </div>
 </body>
 </html>

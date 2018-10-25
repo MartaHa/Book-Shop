@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 <p> Hello User</p>
+    <div>
+        <span> See all books:</span>
+        <a th:href="@{/book/showAll}"> See all books </a>
+    </div>
 </body>
 </html>

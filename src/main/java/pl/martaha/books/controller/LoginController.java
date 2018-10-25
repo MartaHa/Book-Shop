@@ -92,6 +92,14 @@ public class LoginController {
         return "admin/mainAdmin";
     }
 
+
+    /* log out */
+
+    @GetMapping("/logout")
+    public String logout() {
+        return "main";
+    }
+
 }
 
 

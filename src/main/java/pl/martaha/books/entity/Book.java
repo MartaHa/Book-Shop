@@ -103,4 +103,18 @@ public class Book {
 
     public Book() {
     }
+
+    /* To String Method */
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                ", title: '" + title + '\'' +
+                ", dateOfPublishing:'" + dateOfPublishing + '\'' +
+                ", authors:" + authors +
+                ", categories: " + categories +
+                ", publishers"  + publishers +
+                ", price: " + price +
+                '}';
+    }
 }

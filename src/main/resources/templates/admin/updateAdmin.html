@@ -1,0 +1,11 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Update information </h1>
+<div class="card-body">
+    <form th:action="@{/admin/update}" method="post" th:object="${user}">
+        <p th:include="user/form :: add-form"></p>
+    </form>
+</div>
+</body>
+</html>
