@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div>
+    <h3>User details</h3>
+    <table>
+        <tr>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th> Date of Birth</th>
+
+
+        </tr>
+        <tr th:each="user1: ${user}">
+            <td th:text="${user1.username}"/>
+            <td th:text="${user1.password}"/>
+            <td th:text="${user1.email}"/>
+            <td th:text="${user1.firstName}"/>
+            <td th:text="${user1.lastName}"/>
+            <td th:text="${user1.dateOfBirth}"/>
+
+        </tr>
+    </table>
+</div>
+<div>
+    <h3>Address details</h3>
+    <table>
+        <tr>
+            <th>City</th>
+            <th>Street</th>
+            <th>House Number</th>
+            <th>Apartement Number</th>
+            <th>Postal Code</th>
+
+
+
+        </tr>
+        <tr th:each="user1: ${user}">
+            <td th:text="${user1.city}"/>
+            <td th:text="${user1.streetName}"/>
+            <td th:text="${user1.houseNumber}"/>
+            <td th:text="${user1.apartmentNumber}"/>
+            <td th:text="${user1.postalCode}"/>
+
+        </tr>
+    </table>
+</div>
+<div>
+    <span> Delete User</span>
+    <tr th:each="user1: ${user}">
+    <td><a th:href="@{/user/delete}">Delete</a></td>
+    </tr>
+</div>
+</body>
+</html>

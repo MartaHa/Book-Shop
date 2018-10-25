@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+    <div>
+        <table>
+            <tr>
+                <th th:text="'Id'"></th>
+                <th th:text="'Username'"></th>
+                <th th:text="'Email'"></th>
+                <th th:text="'See details'"></th>
+
+            </tr>
+
+            <tr th:each="user: ${users}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.email}"></td>
+                <td><a th:href="@{/user/showUser/{id}/(id=${user.id})}"> Show details</a></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

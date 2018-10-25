@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-
+<h1>Update information </h1>
 <div class="card-body">
-    <div th:fragment="add-form">
+    <form th:action="@{/admin/update}" method="post" th:object="${user}">
         <div>
             <p>
                 <label th:for="username"> User Name</label>
@@ -40,7 +40,7 @@
             </p>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
+    </form>
 </div>
 </body>
 </html>

@@ -13,53 +13,58 @@ import pl.martaha.books.service.UserService;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/admin")
-public class AdminController {
+@RequestMapping("/user")
+public class UserController {
 
     private final UserRepository userRepository;
+    private final UserService userService;
 
-
-    public AdminController(UserRepository userRepository) {
+    public UserController(UserRepository userRepository, UserService userService) {
         this.userRepository = userRepository;
+        this.userService = userService;
     }
 
 
-    /* update Admin */
+    /* update User */
 
     @GetMapping("/update/{id}")
     public String updateAuthor(Model model, @PathVariable long id) {
         model.addAttribute("user", userRepository.findById(id));
-        return "admin/update";
+        return "user/update";
     }
 
     @PostMapping("/update")
     public String performUpdate(@ModelAttribute @Valid User user, BindingResult result) {
         if (result.hasErrors()) {
-            return "admin/update";
+            return "user/update";
         }
         userRepository.save(user);
-        return "redirect:/admin/showAdmin";
+        return "redirect:/user/showUser";
 
     }
 
-    /* show Admin */
+    /* show User */
 
-    @GetMapping("/showAdmin")
+    @GetMapping("/showUser")
 
     public String showUser(@AuthenticationPrincipal CurrentUser customUser, Model model) {
         User entityUser = customUser.getUser();
         model.addAttribute("user", entityUser);
-        return "admin/showAdmin";
+        return "user/showUser";
 
     }
 
 
-    /* showUsersToAdmin */
 
-    @GetMapping("/showAllUsers")
-    public String showUsers(Model model) {
-        model.addAttribute("users", userRepository.findAll());
-        return "admin/showUsers";
+
+    /* show User by Id*/
+
+    @GetMapping("/showUser/{id}")
+
+    public String showUserbyId(Model model, @PathVariable long id) {
+        model.addAttribute("user", userRepository.getOne(id));
+        return "user/showUser";
+
     }
 
 }
