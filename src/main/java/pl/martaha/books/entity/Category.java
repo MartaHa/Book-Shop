@@ -17,6 +17,10 @@ public class Category {
     @ManyToMany(mappedBy = "categories")
     private Set<Book> books = new HashSet<>();
 
+    @ManyToMany(mappedBy = "categories2")
+    private Set<OrderBook> orderBooks = new HashSet<>();
+
+
 
     /*Getters & Setters &  Constructor*/
 
@@ -42,6 +46,14 @@ public class Category {
 
     public void setBooks(Set<Book> books) {
         this.books = books;
+    }
+
+    public Set<OrderBook> getOrderBooks() {
+        return orderBooks;
+    }
+
+    public void setOrderBooks(Set<OrderBook> orderBooks) {
+        this.orderBooks = orderBooks;
     }
 
     public Category() {

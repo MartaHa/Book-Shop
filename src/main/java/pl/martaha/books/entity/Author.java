@@ -24,6 +24,8 @@ public class Author {
     @ManyToMany(mappedBy = "authors")
     private Set<Book> books = new HashSet<>();
 
+    @ManyToMany(mappedBy = "authors2")
+    private Set<OrderBook> orderBooks = new HashSet<>();
 
     /*Getters & Setters & Constructor*/
 
@@ -61,6 +63,14 @@ public class Author {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+
+    public Set<OrderBook> getOrderBooks() {
+        return orderBooks;
+    }
+
+    public void setOrderBooks(Set<OrderBook> orderBooks) {
+        this.orderBooks = orderBooks;
     }
 
     public Author() {

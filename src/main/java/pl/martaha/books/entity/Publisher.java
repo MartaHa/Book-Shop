@@ -13,6 +13,9 @@ public class Publisher {
     @ManyToOne
     private Book book;
 
+    @ManyToOne
+    private OrderBook orderBook;
+
     /* Getters & Setters & Constructor */
 
     public long getId() {
@@ -37,6 +40,14 @@ public class Publisher {
 
     public void setBook(Book book) {
         this.book = book;
+    }
+
+    public OrderBook getOrderBook() {
+        return orderBook;
+    }
+
+    public void setOrderBook(OrderBook orderBook) {
+        this.orderBook = orderBook;
     }
 
     public Publisher() {

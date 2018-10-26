@@ -12,8 +12,45 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private int quantity;
-    private double amount;
+    private int amount;
 
     @OneToMany(mappedBy = "order")
-    private List<OrderedBook> books = new ArrayList<>();
+    private List<OrderBook> orderBooks = new ArrayList<>();
+
+    /* Getters & Setters & Constructor */
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public List<OrderBook> getBooks() {
+        return orderBooks;
+    }
+
+    public void setBooks(List<OrderBook> orderBooks) {
+        this.orderBooks = orderBooks;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public Order() {
+    }
 }
