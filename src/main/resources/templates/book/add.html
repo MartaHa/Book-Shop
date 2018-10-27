@@ -11,7 +11,12 @@
                     <input th:field="*{title}"/>
                 <p th:errors="*{title}"></p>
             </div>
-
+            <div>
+                <label th:for="description"> Description</label>
+                <p th:input type="text" placeholder=" description">
+                    <input th:field="*{description}"/>
+                <p th:errors="*{description}"></p>
+            </div>
             <div>
                 <label th:for="dateOfPublishing"> Date of Publishing</label>
                 <p th:input type="text" placeholder=" dateOfPublishing">

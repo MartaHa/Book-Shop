@@ -90,4 +90,16 @@ public class BookController {
         List<Publisher> publishers = publisherRepository.findAll();
         return publishers;
     }
+
+    /* show Book Details */
+
+
+    @GetMapping("/showDetails/{id}")
+
+    public String showOne(Model model, @PathVariable long id) {
+        model.addAttribute("books", bookRepository.getOne(id));
+        return "book/showOne";
+
+    }
+
 }

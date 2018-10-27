@@ -46,6 +46,9 @@ public class OrderBook {
     @ManyToOne
     private Order order;
 
+
+    /* Getters & Setters & Constructor */
+
     public String getTitle() {
         return title;
     }

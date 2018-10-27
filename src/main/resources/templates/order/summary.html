@@ -2,14 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
         <div>
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table>
                     <th>Book</th>
                     <th>Amount</th>
                     <th>Price</th>
                     <th>Sum</th>
                     <th></th>
-                    <tr th:each="order: ${orderItems}">
-                        <td th:text="${order.name}"/>
+                    <tr th:each="order: ${orderBook}">
+                        <td th:text="${order.title}"/>
                         <td th:text="${order.quantity}"/>
                         <td th:text="${order.price}"/>
                         <td th:text="${order.price} * ${order.quantity}"/>

@@ -36,7 +36,7 @@
             <th>House Number</th>
             <th>Apartement Number</th>
             <th>Postal Code</th>
-            <th sec:authorize="hasAuthority('USER')"> Update Profile</th>
+            <th sec:authorize="hasRole('USER')"> Update Profile</th>
 
             </td>
             <tr th:each="user1: ${user}">
@@ -45,7 +45,7 @@
                 <td th:text="${user1.houseNumber}"/>
                 <td th:text="${user1.apartmentNumber}"/>
                 <td th:text="${user1.postalCode}"/>
-                <a th:href="@{/usery/update/{id}/(id=${user.id})}"> Update </a></td>
+               <td th sec:authorize="hasRole('USER')"> <a th:href="@{/usery/update/{id}/(id=${user.id})}"> Update </a></td>
 
             </tr>
         </table>

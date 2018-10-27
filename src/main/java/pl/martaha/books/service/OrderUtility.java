@@ -51,7 +51,7 @@ public class OrderUtility {
     /* Getter & Setter */
 
 
-    public Map<Long, Book> getOrderItemMap() {
+    public Map<Long, Book> getOrderBookMap() {
         return orderBookMap;
     }
 

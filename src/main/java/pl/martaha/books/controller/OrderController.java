@@ -42,5 +42,30 @@ public class OrderController {
         orderUtility.remove(book);
         return "redirect:/order/summary";
     }
+
+    /* summary of the order */
+
+
+    @GetMapping("/summary")
+    public String summary(Model model){
+        model.addAttribute("orderBook", orderUtility.getOrderBookMap().values());
+        return "order/summary";
+    }
+
+
+    @GetMapping("/plus/{id}")
+    public String plus(@PathVariable long id){
+        Book book = bookRepository.getOne(id);
+        orderUtility.plus(book);
+        return "redirect:/order/summary";
+    }
+
+
+    @GetMapping("/minus/{id}")
+    public String minus(@PathVariable long id){
+        Book book = bookRepository.getOne(id);
+        orderUtility.minus(book);
+        return "redirect:/order/summary";
+    }
 }
 
