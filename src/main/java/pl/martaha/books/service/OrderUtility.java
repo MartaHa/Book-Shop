@@ -29,8 +29,8 @@ public class OrderUtility {
 
     /* Removing book */
 
-    public void remove(Book cartBook) {
-        this.orderBookMap.remove(cartBook.getId());
+    public void remove(Book book) {
+        this.orderBookMap.remove(book.getId());
     }
 
     public void plus(Book book) {

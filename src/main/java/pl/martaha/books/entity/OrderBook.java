@@ -43,8 +43,7 @@ public class OrderBook {
     private double price;
     private int quantity;
 
-    @ManyToOne
-    private Order order;
+
 
 
     /* Getters & Setters & Constructor */

@@ -3,18 +3,18 @@
 <body>
         <div>
                 <table>
-                    <th>Book</th>
+                    <!--<th>Book</th>-->
                     <th>Amount</th>
                     <th>Price</th>
                     <th>Sum</th>
                     <th></th>
-                    <tr th:each="order: ${orderBook}">
-                        <td th:text="${order.title}"/>
-                        <td th:text="${order.quantity}"/>
-                        <td th:text="${order.price}"/>
-                        <td th:text="${order.price} * ${order.quantity}"/>
-                        <td><a th:href="@{/order/remove/{id}/(id=${order.id})}">Usuń</a><a th:href="@{/order/plus/{id}/(id=${order.id})}" class="btn btn-info">+</a>
-                            <a th:href="@{/order/minus/{id}/(id=${order.id})}">-</a></td>
+                    <tr th:each="book: ${orderBook}">
+                        <td th:text="${book.title}"/>
+                        <td th:text="${book.quantity}"/>
+                        <td th:text="${book.price}"/>
+                        <td th:text="${book.price} * ${book.quantity}"/>
+                        <td><a th:href="@{/order/remove/{id}/(id=${book.id})}">Usuń</a><a th:href="@{/order/plus/{id}/(id=${book.id})}" class="btn btn-info">+</a>
+                            <a th:href="@{/order/minus/{id}/(id=${book.id})}">-</a></td>
                     </tr>
                 </table>
 

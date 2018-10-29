@@ -42,7 +42,8 @@ public class Book {
     private double price;
     private int quantity;
 
-
+    @ManyToOne
+    private Order order;
 
     /*Getters & Setters & Constructor*/
 
@@ -118,7 +119,13 @@ public class Book {
         this.publishers = publishers;
     }
 
+    public Order getOrder() {
+        return order;
+    }
 
+    public void setOrder(Order order) {
+        this.order = order;
+    }
 
     public Book() {
     }

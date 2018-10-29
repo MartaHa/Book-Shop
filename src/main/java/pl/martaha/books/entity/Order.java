@@ -15,7 +15,7 @@ public class Order {
     private int amount;
 
     @OneToMany(mappedBy = "order")
-    private List<OrderBook> orderBook = new ArrayList<>();
+    private List<Book> orderedBooks = new ArrayList<>();
 
     /* Getters & Setters & Constructor */
 
@@ -35,12 +35,12 @@ public class Order {
         this.quantity = quantity;
     }
 
-    public List<OrderBook> getBooks() {
-        return orderBook;
+    public List<Book> getOrderedBooks() {
+        return orderedBooks;
     }
 
-    public void setBooks(List<OrderBook> orderBook) {
-        this.orderBook = orderBook;
+    public void setOrderedBooks(List<Book> orderedBooks) {
+        this.orderedBooks = orderedBooks;
     }
 
     public int getAmount() {
