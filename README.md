@@ -26,12 +26,13 @@ Book shop online application.
 List of features ready and TODOs for future development
 * 2 roles created (admin, user)
 * CRUD operations on admin and user profile
+* admin operations on entities(Author, Category, Publisher, Book)
 * admin operations on users profiles
 * adding the book to cart
 * some tests (TDD)
 
 To-do list:
-* correct and end teh process of ordering books
+* correct and end the process of ordering books
 * more tests TDD
 * layout in (HTML ,CSS JS)
 
