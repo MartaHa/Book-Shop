@@ -20,6 +20,7 @@ Book shop online application.
 * MySQL
 * JUNIT
 * HTML
+* Maven
 
 
 ## Features
